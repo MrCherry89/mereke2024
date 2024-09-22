@@ -2292,6 +2292,7 @@ a:focus {
 
 .all-projects {
   margin: 60px 0;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   .all-projects .wrapper {

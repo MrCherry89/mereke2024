@@ -902,6 +902,7 @@
 
 .all-projects {
   margin: 60px 0;
+  overflow: hidden;
   .wrapper {
     @media (max-width: 767px) {
       position: relative;
