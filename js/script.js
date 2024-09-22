@@ -144,6 +144,11 @@ $(document).ready(function () {
       prevArrow: $(sliderWrapClass + " .slider-navigation-global .slick-prev"),
       nextArrow: $(sliderWrapClass + " .slider-navigation-global .slick-next"),
     });
+
+    // Пересчет слайдера при изменении размеров окна
+    $(window).on("resize", function () {
+      $(sliderClass).slick("setPosition");
+    });
   }
 
   initializeSlider(".projects-slider", ".projects-slider-wrap");

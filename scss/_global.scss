@@ -934,11 +934,13 @@ a {
   top: 0;
   left: 0;
   z-index: 0;
-
+  width: 0;
+  transition: 0.6s;
   &.active {
     opacity: 1;
     position: static;
     visibility: visible;
     z-index: 1;
+    width: auto;
   }
 }
