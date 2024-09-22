@@ -165,7 +165,8 @@ a {
   }
 }
 
-.select-wrap {
+.select-wrap,
+.select-wrap-2 {
   position: relative;
   select {
     display: none;
@@ -259,6 +260,30 @@ a {
       .select2-selection__rendered {
         color: green !important;
       }
+    }
+  }
+}
+
+.select-wrap-2 {
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  background: white;
+  .select2-selection__rendered {
+    color: #141414 !important;
+    padding-left: 20px !important;
+  }
+  .select2-selection__arrow {
+    width: 12px !important;
+    height: 8px !important;
+    right: 30px !important;
+    b {
+      background: url(../img/red-arrow.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 12px !important;
+      height: 8px !important;
+      right: 30px !important;
     }
   }
 }
@@ -867,4 +892,53 @@ a {
   @include align-center;
   @include justify-between;
   margin-bottom: 20px;
+}
+
+.select-wrap-2 {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+    flex-grow: 1;
+  }
+}
+
+.tab-menu {
+  @include flex;
+  margin-bottom: 40px;
+  @media (max-width: 767px) {
+    display: none;
+  }
+
+  li {
+    margin-right: 50px;
+    a {
+      font-size: 18px;
+      color: #494949;
+      border-bottom: 1px solid transparent;
+    }
+
+    &.active {
+      a {
+        color: #554795;
+        border-color: #554795;
+      }
+    }
+  }
+}
+
+.tab-content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  &.active {
+    opacity: 1;
+    position: static;
+    visibility: visible;
+    z-index: 1;
+  }
 }

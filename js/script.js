@@ -6,6 +6,62 @@ $(document).ready(function () {
     minimumResultsForSearch: 6,
   });
 
+  // function formatSelection(state) {
+  //   if (!state.id) {
+  //     return state.text;
+  //   }
+
+  //   var $state = $('<span><img class="img-icon" /> <span></span></span>');
+
+  //   $state.find("span").text(state.text);
+  //   $state.find("img").attr("src", state.element.dataset.icon);
+
+  //   return $state;
+  // }
+
+  // function formatResult(state) {
+  //   if (!state.id) {
+  //     return state.text;
+  //   }
+
+  //   var $state = $('<span><img class="img-icon" /> <span></span></span>');
+
+  //   $state.find("span").text(state.text);
+  //   $state.find("img").attr("src", state.element.dataset.icon);
+
+  //   return $state;
+  // }
+
+  $(".select-wrap-2 select").select2({
+    minimumResultsForSearch: -1,
+    // templateSelection: formatSelection,
+    // templateResult: formatResult,
+  });
+
+  $(".tab-menu > li a").on("click", function (e) {
+    e.preventDefault();
+    $(".tab-menu > li").removeClass("active");
+    $(this).closest("li").addClass("active");
+    var index = $(this).closest("li").index();
+    $(".tab-content-wrap .tab-content").removeClass("active");
+    $(".tab-content-wrap .tab-content").eq(index).addClass("active");
+
+    var selectedTab = $(this).closest("li").data("index");
+
+    $("#tab-select").val(selectedTab);
+    $("#tab-select").trigger("change");
+  });
+
+  $("#tab-select").on("change", function (e) {
+    var selectedTab = $(this).val();
+    var index = parseInt($(this).val()) - 1;
+
+    $(".tab-menu > li").removeClass("active");
+    $(".tab-menu > li").eq(index).addClass("active");
+    $(".tab-content-wrap .tab-content").removeClass("active");
+    $(".tab-content-wrap .tab-content").eq(index).addClass("active");
+  });
+
   $(".drop-menu").click(function (e) {
     e.stopPropagation();
     $(this).toggleClass("is-active");
@@ -74,11 +130,25 @@ $(document).ready(function () {
           slidesToScroll: 1,
         },
       },
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ],
   });
+
+  function initializeSlider(sliderClass, sliderWrapClass) {
+    $(sliderClass).slick({
+      dots: false,
+      infinite: true,
+      arrows: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      prevArrow: $(sliderWrapClass + " .slider-navigation-global .slick-prev"),
+      nextArrow: $(sliderWrapClass + " .slider-navigation-global .slick-next"),
+    });
+  }
+
+  initializeSlider(".projects-slider", ".projects-slider-wrap");
+  initializeSlider(".projects-slider2", ".projects-slider-wrap2");
+  initializeSlider(".projects-slider3", ".projects-slider-wrap3");
 
   // Дополнительная логика для линии прогресса
   $(".fond-items-slider").on(
