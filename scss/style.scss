@@ -681,6 +681,10 @@
     .texts {
       height: 135px;
       overflow: hidden;
+      &.show {
+        height: auto;
+        overflow: hidden;
+      }
       @media (max-width: 767px) {
         height: 130px;
       }
@@ -731,7 +735,7 @@
             white-space: nowrap;
             margin-right: 20px;
             &:hover {
-              background: #160a00;
+              background: $red;
               color: #e9e9e9;
             }
           }
@@ -937,7 +941,7 @@
         left: 20px;
       }
       &:hover {
-        background: #160a00;
+        background: $red;
         color: #e9e9e9;
       }
     }

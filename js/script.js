@@ -141,6 +141,8 @@ $(document).ready(function () {
       slidesToShow: 1,
       slidesToScroll: 1,
       variableWidth: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
       prevArrow: $(sliderWrapClass + " .slider-navigation-global .slick-prev"),
       nextArrow: $(sliderWrapClass + " .slider-navigation-global .slick-next"),
     });
@@ -220,5 +222,10 @@ $(document).ready(function () {
   $(".popup").magnificPopup({
     type: "inline",
     mainClass: "mfp-fade",
+  });
+
+  $(".review-slider .item .more").on("click", function () {
+    $(this).closest(".item").find(".texts").addClass("show");
+    $(this).hide();
   });
 });

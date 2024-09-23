@@ -510,6 +510,8 @@ a {
   }
   .footer-bottom {
     margin-top: 40px;
+    @include flex;
+    @include dir-col;
     .mereke {
       width: 100%;
     }

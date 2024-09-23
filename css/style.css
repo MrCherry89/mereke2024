@@ -586,6 +586,13 @@ a:focus {
 }
 .footer .footer-bottom {
   margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 .footer .footer-bottom .mereke {
   width: 100%;
@@ -2037,6 +2044,10 @@ a:focus {
   height: 135px;
   overflow: hidden;
 }
+.review-slider .item .texts.show {
+  height: auto;
+  overflow: hidden;
+}
 @media (max-width: 767px) {
   .review-slider .item .texts {
     height: 130px;
@@ -2111,7 +2122,7 @@ a:focus {
   margin-right: 20px;
 }
 .news .wrapper .news-slider-wrap .top-style .buttons .all-news:hover {
-  background: #160a00;
+  background: #e53247;
   color: #e9e9e9;
 }
 .news .wrapper .news-slider-wrap .top-style .slider-navigation-global {
@@ -2341,7 +2352,7 @@ a:focus {
   }
 }
 .all-projects .top-style .all-projects-btn:hover {
-  background: #160a00;
+  background: #e53247;
   color: #e9e9e9;
 }
 
