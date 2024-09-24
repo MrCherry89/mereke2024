@@ -6,36 +6,18 @@ $(document).ready(function () {
     minimumResultsForSearch: 6,
   });
 
-  // function formatSelection(state) {
-  //   if (!state.id) {
-  //     return state.text;
-  //   }
+  $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
+    disableOn: 700,
+    type: "iframe",
+    mainClass: "mfp-fade",
+    removalDelay: 160,
+    preloader: false,
 
-  //   var $state = $('<span><img class="img-icon" /> <span></span></span>');
-
-  //   $state.find("span").text(state.text);
-  //   $state.find("img").attr("src", state.element.dataset.icon);
-
-  //   return $state;
-  // }
-
-  // function formatResult(state) {
-  //   if (!state.id) {
-  //     return state.text;
-  //   }
-
-  //   var $state = $('<span><img class="img-icon" /> <span></span></span>');
-
-  //   $state.find("span").text(state.text);
-  //   $state.find("img").attr("src", state.element.dataset.icon);
-
-  //   return $state;
-  // }
+    fixedContentPos: false,
+  });
 
   $(".select-wrap-2 select").select2({
     minimumResultsForSearch: -1,
-    // templateSelection: formatSelection,
-    // templateResult: formatResult,
   });
 
   $(".tab-menu > li a").on("click", function (e) {
@@ -202,6 +184,96 @@ $(document).ready(function () {
   // Повторная проверка при изменении размера окна
   $(window).resize(function () {
     initSlickSlider();
+  });
+
+  function initSlickSlider2() {
+    if ($(window).width() < 1025) {
+      // Условие для мобильных устройств
+      if (!$(".our-mission-slider").hasClass("slick-initialized")) {
+        // Проверка, не инициализирован ли уже слайдер
+        $(".our-mission-slider").slick({
+          dots: true,
+          arrows: true,
+          slidesToShow: 1,
+          slideToScroll: 1,
+          variableWidth: true,
+          prevArrow: $(".our-mission .slider-navigation-global .slick-prev"),
+          nextArrow: $(".our-mission .slider-navigation-global .slick-next"),
+        });
+      }
+    } else {
+      if ($(".our-mission-slider").hasClass("slick-initialized")) {
+        $(".our-mission-slider").slick("unslick"); // Отключаем слайдер на десктопах
+      }
+    }
+  }
+
+  // Инициализация при загрузке страницы
+  initSlickSlider2();
+
+  // Повторная проверка при изменении размера окна
+  $(window).resize(function () {
+    initSlickSlider2();
+  });
+
+  function initSlickSlider3() {
+    if ($(window).width() < 1025) {
+      // Условие для мобильных устройств
+      if (!$(".personal-slider").hasClass("slick-initialized")) {
+        // Проверка, не инициализирован ли уже слайдер
+        $(".personal-slider").slick({
+          dots: true,
+          arrows: true,
+          slidesToShow: 1,
+          slideToScroll: 1,
+          variableWidth: true,
+          prevArrow: $(".personal .slider-navigation-global .slick-prev"),
+          nextArrow: $(".personal .slider-navigation-global .slick-next"),
+        });
+      }
+    } else {
+      if ($(".personal-slider").hasClass("slick-initialized")) {
+        $(".personal-slider").slick("unslick"); // Отключаем слайдер на десктопах
+      }
+    }
+  }
+
+  // Инициализация при загрузке страницы
+  initSlickSlider3();
+
+  // Повторная проверка при изменении размера окна
+  $(window).resize(function () {
+    initSlickSlider3();
+  });
+
+  function initSlickSlider4() {
+    if ($(window).width() < 1025) {
+      // Условие для мобильных устройств
+      if (!$(".personal-slider2").hasClass("slick-initialized")) {
+        // Проверка, не инициализирован ли уже слайдер
+        $(".personal-slider2").slick({
+          dots: true,
+          arrows: true,
+          slidesToShow: 1,
+          slideToScroll: 1,
+          variableWidth: true,
+          prevArrow: $(".personal2 .slider-navigation-global .slick-prev"),
+          nextArrow: $(".personal2 .slider-navigation-global .slick-next"),
+        });
+      }
+    } else {
+      if ($(".personal-slider2").hasClass("slick-initialized")) {
+        $(".personal-slider2").slick("unslick"); // Отключаем слайдер на десктопах
+      }
+    }
+  }
+
+  // Инициализация при загрузке страницы
+  initSlickSlider4();
+
+  // Повторная проверка при изменении размера окна
+  $(window).resize(function () {
+    initSlickSlider4();
   });
 
   $(".tab-links a").on("click", function (e) {
