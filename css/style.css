@@ -1181,6 +1181,20 @@ a:focus {
   display: block;
 }
 
+.global-menu {
+  margin: 50px 0;
+}
+.global-menu li {
+  margin: 10px 0;
+}
+.global-menu li a {
+  font-size: 20px;
+  color: #000;
+}
+.global-menu li a:hover {
+  color: #e53247;
+}
+
 .main-title {
   color: #141414;
   font-size: 44px;

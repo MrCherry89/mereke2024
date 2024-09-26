@@ -924,6 +924,20 @@ a {
   }
 }
 
+.global-menu {
+  margin: 50px 0;
+  li {
+    margin: 10px 0;
+    a {
+      font-size: 20px;
+      color: #000;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
 .main-title {
   color: #141414;
   font-size: 44px;
