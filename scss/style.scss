@@ -118,6 +118,42 @@
   @media (max-width: 767px) {
     margin: 40px 0;
   }
+  &.contacs-us-sponsor {
+    .contacs-us-info {
+      @include flex;
+      @include justify-between;
+      @include align-center;
+      padding: 40px 20px;
+      @media (max-width: 767px) {
+        padding: 30px 20px;
+      }
+    }
+    .img-wrap {
+      position: absolute;
+      top: 45%;
+      right: 40px;
+      transform: translateY(-50%);
+      @include flex;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+    .form-wrap {
+      min-width: 500px;
+      @media (max-width: 1024px) {
+        min-width: 100%;
+      }
+      h2 {
+        margin-bottom: 40px;
+        @media (max-width: 1024px) {
+          margin-bottom: 20px;
+        }
+      }
+      .red-btn {
+        margin-top: 20px;
+      }
+    }
+  }
 }
 
 .video-block {
@@ -1019,12 +1055,13 @@
       margin-bottom: 10px;
     }
   }
-  .more {
+  a {
     @include flex;
     @include align-center;
     color: #554795;
     font-size: 16px;
     margin-top: 15px;
+    display: block;
     img {
       margin-left: 5px;
     }
@@ -1196,7 +1233,7 @@
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   overflow: hidden;
-
+  max-width: 580px;
   &:hover {
     .img-wrap {
       img {
@@ -1323,6 +1360,20 @@
           }
         }
       }
+    }
+  }
+  &.reports-info {
+    margin: 140px 0 250px;
+    @media (max-width: 1024px) {
+      margin: 60px 0;
+    }
+    .items {
+      grid-template-columns: 1fr 1fr;
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    .main-title {
     }
   }
 }
@@ -1721,82 +1772,112 @@
   }
 }
 
-.pagination {
-  @include flex;
-  @include align-center;
-  @include justify-center;
-  > button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: white;
-    @include flex;
+.help-fund {
+  margin: 30px 0 60px;
+  @media (max-width: 767px) {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .breadcrumbs {
+    padding-top: 0;
+  }
+  .main-title {
+    margin-bottom: 40px;
     @media (max-width: 767px) {
-      width: 40px;
-      height: 40px;
+      margin-bottom: 20px;
+      font-size: 32px;
     }
-    svg {
-      margin: auto;
-      transition: 0.3s;
-      @media (max-width: 767px) {
-        width: 10px;
-      }
-      path {
-        stroke: #1e1e1e;
-        transition: 0.3s;
-      }
+  }
+  .info {
+    margin-bottom: 30px;
+    padding: 0 20px;
+    @media (max-width: 767px) {
+      margin-bottom: 20px;
+      padding: 0;
     }
-    &.right {
-      margin-left: 15px;
-      @media (max-width: 767px) {
-        margin-left: 5px;
-      }
-      svg {
-        transform: rotate(180deg);
-      }
-    }
-    &.left {
-      margin-right: 15px;
-      @media (max-width: 767px) {
-        margin-right: 5px;
-      }
-    }
-    &:hover {
-      background: #554795;
-      svg {
-        path {
-          stroke: white;
+    .brands {
+      @include flex;
+      img {
+        margin-right: 20px;
+        @media (max-width: 767px) {
+          margin-right: 10px;
+          max-width: 100%;
+          max-height: 100%;
         }
+      }
+    }
+    .title {
+      margin-bottom: 20px;
+      color: #554795;
+      font-size: 26px;
+      font-weight: bold;
+      margin-left: -20px;
+      @media (max-width: 767px) {
+        margin-left: 0;
+        font-size: 22px;
+      }
+    }
+    .red-btn {
+      max-width: 280px;
+      width: 100%;
+      font-weight: 500;
+      font-size: 16px;
+      border: 1px solid $red;
+      margin-top: 10px;
+      @media (max-width: 767px) {
+        max-width: 100%;
+      }
+      &:hover {
+        background: darken($red, 7%);
+        color: white;
+      }
+    }
+    .green-btn {
+      max-width: 280px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .text {
+      font-size: 18px;
+      color: #333333;
+      margin-bottom: 20px;
+      max-width: 560px;
+      img {
+        margin-right: 10px;
+      }
+      &.icon {
+        @include flex;
+        @include align-center;
       }
     }
   }
-  ul {
-    @include flex;
-    li {
-      margin: 0 8px;
-      @media (max-width: 767px) {
-        margin: 0 5px;
-      }
-      button {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        background: white;
-        color: #444444;
-        font-size: 20px;
-        font-weight: 500;
-        @media (max-width: 767px) {
-          width: 40px;
-          height: 40px;
-          font-size: 16px;
-          border-style: 5px;
-        }
-      }
-      &.active {
-        button {
-          background: #554795;
-          color: white;
-        }
+}
+
+.our-partners-sponsors {
+  .main-title {
+    margin-bottom: 50px;
+    @media (max-width: 767px) {
+      margin-bottom: 30px;
+    }
+  }
+  .logos {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .img {
+      max-width: 175px;
+      max-height: 65px;
+      @include flex;
+      @include justify-center;
+      @include align-center;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
       }
     }
   }

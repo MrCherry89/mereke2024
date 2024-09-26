@@ -1,7 +1,4 @@
 $(document).ready(function () {
-  // $(".phone-number-input").inputmask({
-  //   mask: "+7 (999)-999-999-9",
-  // });
   $(".select-wrap select").select2({
     minimumResultsForSearch: 6,
   });
@@ -17,6 +14,9 @@ $(document).ready(function () {
   });
 
   $(".select-wrap-2 select").select2({
+    minimumResultsForSearch: -1,
+  });
+  $(".select-wrap-3 select").select2({
     minimumResultsForSearch: -1,
   });
 
@@ -51,6 +51,15 @@ $(document).ready(function () {
     $("body, html").toggleClass("overflow");
   });
 
+  $(".map-tab-wrap .tab-menu li button").on("click", function (e) {
+    e.preventDefault();
+    $(this).closest(".tab-menu").find("li").removeClass("active");
+    $(this).closest("li").addClass("active");
+    var index = $(this).closest("li").index();
+    $(".tab-content2 .tab-content-item").removeClass("active");
+    $(".tab-content2 .tab-content-item").eq(index).addClass("active");
+  });
+
   $(".banner-slider").slick({
     dots: true,
     infinite: true,
@@ -81,6 +90,16 @@ $(document).ready(function () {
     slidesToScroll: 1,
     prevArrow: $(".news-slider-wrap .slider-navigation-global .slick-prev"),
     nextArrow: $(".news-slider-wrap .slider-navigation-global .slick-next"),
+  });
+
+  $(".sets-slider").slick({
+    dots: true,
+    infinite: true,
+    arrows: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: $(".sets-slider-wrap .slider-navigation-global .slick-prev"),
+    nextArrow: $(".sets-slider-wrap .slider-navigation-global .slick-next"),
   });
 
   $(".partners-slider").slick({
@@ -276,6 +295,40 @@ $(document).ready(function () {
     initSlickSlider4();
   });
 
+  function initSlickSlider5() {
+    if ($(window).width() < 1025) {
+      // Условие для мобильных устройств
+      if (!$(".project-slider").hasClass("slick-initialized")) {
+        // Проверка, не инициализирован ли уже слайдер
+        $(".project-slider").slick({
+          dots: true,
+          arrows: true,
+          slidesToShow: 1,
+          slideToScroll: 1,
+          variableWidth: true,
+          prevArrow: $(
+            ".project-slider-wrap .slider-navigation-global .slick-prev"
+          ),
+          nextArrow: $(
+            ".project-slider-wrap .slider-navigation-global .slick-next"
+          ),
+        });
+      }
+    } else {
+      if ($(".project-slider").hasClass("slick-initialized")) {
+        $(".project-slider").slick("unslick"); // Отключаем слайдер на десктопах
+      }
+    }
+  }
+
+  // Инициализация при загрузке страницы
+  initSlickSlider5();
+
+  // Повторная проверка при изменении размера окна
+  $(window).resize(function () {
+    initSlickSlider5();
+  });
+
   $(".tab-links a").on("click", function (e) {
     e.preventDefault();
 
@@ -287,7 +340,22 @@ $(document).ready(function () {
     $(this).parent("li").addClass("active");
 
     // Показываем активный контент и скрываем неактивный
-    $(".tab").removeClass("active");
+    $(".contacs-us .tab").removeClass("active");
+    $(currentAttrValue).addClass("active");
+  });
+
+  $(".tab-links2 a").on("click", function (e) {
+    e.preventDefault();
+
+    // Удаляем активный класс у всех табов
+    var currentAttrValue = $(this).attr("href");
+
+    // Меняем активные ссылки
+    $(".tab-links2 li").removeClass("active");
+    $(this).parent("li").addClass("active");
+
+    // Показываем активный контент и скрываем неактивный
+    $("#support-popup .tab").removeClass("active");
     $(currentAttrValue).addClass("active");
   });
 
@@ -299,5 +367,35 @@ $(document).ready(function () {
   $(".review-slider .item .more").on("click", function () {
     $(this).closest(".item").find(".texts").addClass("show");
     $(this).hide();
+  });
+
+  $(".accordion-list-item .item-heading").on("click", function (e) {
+    e.preventDefault();
+    if ($(this).find(".icon").hasClass("rotate")) {
+      $(this).find(".icon").removeClass("rotate");
+    } else {
+      $(this)
+        .closest(".accordion-list-item")
+        .find(".icon")
+        .removeClass("rotate");
+      $(this).find(".icon").addClass("rotate");
+    }
+    $(this).closest(".accordion-list-item").removeClass("opened");
+    $(this)
+      .closest(".accordion-list-item")
+      .find(".item-body")
+      .removeClass("active");
+    $(this)
+      .closest(".accordion-list-item")
+      .find(".item-body")
+      .addClass("active");
+    $(this).closest(".accordion-list-item").addClass("opened");
+    $(this)
+      .closest(".accordion-list-item")
+      .find(".item-body:not(.active)")
+      .slideUp();
+    $(this).closest(".accordion-list-item:not(.opened)").removeClass("active");
+    $(this).closest(".accordion-list-item").find(".item-body").slideToggle();
+    $(this).closest(".accordion-list-item").toggleClass("active");
   });
 });
