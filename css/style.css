@@ -4090,6 +4090,7 @@ a:focus {
   height: 100%;
   object-fit: cover;
   transition: 0.3s;
+  margin-left: 0;
 }
 .news-item .date {
   display: block;
