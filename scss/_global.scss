@@ -2160,9 +2160,47 @@ a {
   }
 }
 
-#support-popup-popup {
-  .popup-body {
-    .mfp-close {
+.top-scroll {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s;
+  .icon {
+    border-radius: 50%;
+    transition: 0.3s;
+    width: 40px;
+    height: 40px;
+    @include flex;
+    background: #d9d9d9;
+    margin: 0 auto 8px;
+    svg {
+      margin: auto;
+      transition: 0.3s;
+      fill: #7d7d7d;
     }
+  }
+  .text {
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #939393;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  &:hover {
+    .icon {
+      background: $red;
+      svg {
+        fill: white;
+      }
+    }
+  }
+  &.show {
+    opacity: 1;
   }
 }

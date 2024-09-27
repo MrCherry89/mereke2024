@@ -400,5 +400,18 @@ $(document).ready(function () {
     $(this).closest(".accordion-list-item").toggleClass("active");
   });
 
+  $(".top-scroll").on("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, 1000);
+  });
+
+  // Отслеживание прокрутки и отображение кнопки
+  $(window).scroll(function () {
+    var sticky = $(".top-scroll"),
+      scroll = $(window).scrollTop();
+
+    if (scroll >= 200) sticky.addClass("show");
+    else sticky.removeClass("show");
+  });
+
   AOS.init();
 });
