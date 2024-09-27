@@ -364,7 +364,8 @@ $(document).ready(function () {
     mainClass: "mfp-fade",
   });
 
-  $(".review-slider .item .more").on("click", function () {
+  $(".review-slider .item .more").on("click", function (e) {
+    e.preventDefault();
     $(this).closest(".item").find(".texts").addClass("show");
     $(this).hide();
   });
@@ -398,4 +399,6 @@ $(document).ready(function () {
     $(this).closest(".accordion-list-item").find(".item-body").slideToggle();
     $(this).closest(".accordion-list-item").toggleClass("active");
   });
+
+  AOS.init();
 });
